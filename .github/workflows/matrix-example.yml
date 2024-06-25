@@ -1,6 +1,6 @@
 ---
 name: Test matrix for OS
-on: push
+on: [ push ]
 jobs:
   run-command:
     strategy:
