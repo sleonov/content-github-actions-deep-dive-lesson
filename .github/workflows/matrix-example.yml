@@ -1,3 +1,11 @@
 ---
 name: Test matrix for OS
+on: push
+jobs:
+  run-command:
+    strategy:
+      matrix:
+        platform: [ ubuntu-latest, windows-latest ]
+    steps:
+      run: pwd
 
