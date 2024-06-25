@@ -4,6 +4,13 @@ name: Test matrix for OS
 on: [ push ]
 
 jobs:
+
+  checkout-code:
+    name: Checkout code
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+
   run-command:
     strategy:
       matrix:
