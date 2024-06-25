@@ -6,7 +6,7 @@ on: [ push ]
 jobs:
 
   checkout-code:
-    name: Checkout code
+    runs-on: macos
     steps:
       - name: git checkout
         uses: actions/checkout@v2
