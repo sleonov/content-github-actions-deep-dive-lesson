@@ -7,5 +7,6 @@ jobs:
       matrix:
         platform: [ ubuntu-latest, windows-latest ]
     steps:
-      run: pwd
+      - name: Print Working directory
+        run: pwd
 
