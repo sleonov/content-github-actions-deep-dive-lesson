@@ -16,6 +16,7 @@ jobs:
       matrix:
         platform: [ ubuntu-latest, windows-latest ]
     runs-on: ${{ matrix.platform }}
+    needs: checkout-code
     steps:
       - name: Print Working directory
         run: pwd
