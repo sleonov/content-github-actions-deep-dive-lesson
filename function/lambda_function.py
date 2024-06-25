@@ -1,4 +1,5 @@
-from github import Github
+#from github import Github
+
 
 def lambda_handler(event, context):
     """Lambda function wrapper
@@ -11,9 +12,6 @@ def lambda_handler(event, context):
     print('Starting functions\n---------------------------------------------'
 
     if event["input"] == "Hello":
-
         return "World"
-
     else:
-
         raise
