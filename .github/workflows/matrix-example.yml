@@ -1,11 +1,14 @@
 ---
 name: Test matrix for OS
+
 on: [ push ]
+
 jobs:
   run-command:
     strategy:
       matrix:
         platform: [ ubuntu-latest, windows-latest ]
+    runs-on: ${{ matrix.platform }}
     steps:
       - name: Print Working directory
         run: pwd
