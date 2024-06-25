@@ -55,6 +55,7 @@ jobs:
     needs: build
     steps:
       - name: create release
+        id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
@@ -64,4 +65,17 @@ jobs:
           body: New release for ${{ github.sha }}. Release notes provided.
           draft: false
           prerelease: false
+      - name: download artifact
+        uses: actions/download-artifact
+        with:
+          name: zipped-bundle
+      - name: upload release asset
+        uses: actions/upload-release-asset/@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./${{ github.sha }}.zip
+          asset_name: source_code_with_libraries.zip
+          asset_content_type: application/zip
 ...
